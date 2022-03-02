@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/drawable/bg_splash_activity.xml" value="0.133" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/drawable/ic_action_nav_menu.xml" value="0.133" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.133" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/drawable/ic_shape_button_rounded.xml" value="0.2215" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/drawable/shape_button_outline.xml" value="0.1505" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/drawable/shape_button_outlined.xml" value="0.2215" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/drawable/shape_button_rounded.xml" value="0.151" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/drawable/shapte_button_outline.xml" value="0.2215" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout-v23/activity_intro.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_base.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_create_board.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_intro.xml" value="0.2" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_profile.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_sign_in.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_splash.xml" value="0.16" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/app_bar_main.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/mainactivity_content.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/nav_header_main.xml" value="0.152" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/progress_bar_dialog.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/menu/activity_main_drawer.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

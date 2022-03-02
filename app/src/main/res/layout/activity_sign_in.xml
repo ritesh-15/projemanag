@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SignInActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/signIn_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/signIn_toolbar"
+        android:padding="16dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/textLight"
+            android:gravity="center"
+            android:text="@string/signin_description"
+            android:id="@+id/signIn_description"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/signIn_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="18dp"
+            >
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColorHint="@color/textLight"
+                app:hintTextColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/colorPrimary"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_email"
+                    android:inputType="textEmailAddress"
+                    android:textCursorDrawable="@null"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:layout_constraintTop_toBottomOf="@+id/email_field"
+                android:layout_marginTop="16dp"
+                android:textColorHint="@color/textLight"
+                app:hintTextColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/colorPrimary"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_password"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@null"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <android.widget.Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/password_field"
+                android:text="@string/sign_up"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:background="@drawable/shape_button_gradiant"
+                android:textColor="@color/white"
+                android:id="@+id/btnSignIn"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

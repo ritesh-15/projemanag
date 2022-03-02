@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "42457211236",
+    "project_id": "projemang-f3bed",
+    "storage_bucket": "projemang-f3bed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42457211236:android:b2759e8e92adf1bed39a71",
+        "android_client_info": {
+          "package_name": "com.example.projemanag"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42457211236-htvlr8ugosgpefo8h9aq89df2gou994u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAPzv72JUPIafl_8mfJoA2L4q_HJjjLm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42457211236-htvlr8ugosgpefo8h9aq89df2gou994u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

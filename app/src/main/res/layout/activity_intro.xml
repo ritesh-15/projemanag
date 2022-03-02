@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.IntroActivity"
+    android:padding="16dp"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_intro_img"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/introImage"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="@dimen/largeHeading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introImage"
+        android:id="@+id/introAppName"
+        android:layout_marginTop="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_title"
+        android:textSize="@dimen/heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introAppName"
+        android:layout_marginTop="18dp"
+        android:id="@+id/introSubheading"
+        android:textColor="@color/textPrimary"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_description_text"
+        android:textSize="@dimen/subHeading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introSubheading"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/textLight"
+        android:id="@+id/introDescription"
+        android:gravity="center"
+        />
+
+    <android.widget.Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/introDescription"
+        android:layout_marginTop="18dp"
+        android:textSize="@dimen/subHeading"
+        android:textAllCaps="false"
+        android:id="@+id/btnSignIn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="@drawable/shape_button_gradiant"
+        />
+
+    <android.widget.Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        app:layout_constraintTop_toBottomOf="@id/btnSignIn"
+        android:layout_marginTop="18dp"
+        android:textSize="@dimen/subHeading"
+        android:textAllCaps="false"
+        android:id="@+id/btnSignUp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="@drawable/shape_button_outline"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

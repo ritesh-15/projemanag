@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">projemanag</string>
+    <string name="intro_title">Lets get started!</string>
+    <string name="signup_text">Enter your name, email and password to get started with us</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="intro_description_text">Collaborate and plan together across multiple devices on projemang minimilastic interface</string>
+    <string name="signin_description">Enter email and password to get started</string>
+    <string name="loading_text">Please wait...</string>
+    <string name="nav_image_description">Profile image</string>
+    <string name="user_name">Username</string>
+    <string name="nav_my_profile">My profile</string>
+    <string name="nav_sign_out">Sign out</string>
+    <string name="update">Update</string>
+    <string name="create">CREATE</string>
+</resources>

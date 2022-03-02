@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateBoardActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/create_board_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/create_board_toolbar"
+        android:layout_margin="16dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_user_place_holder"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="1dp"
+                android:id="@+id/board_image"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/board_name_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Board Name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:layout_constraintTop_toBottomOf="@+id/board_image"
+                android:textColorHint="@color/textLight"
+                app:hintTextColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/colorPrimary"
+                android:layout_marginTop="16dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_board_name"
+                    android:inputType="text"
+                    android:textCursorDrawable="@null"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <android.widget.Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/board_name_field"
+                android:text="@string/create"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:background="@drawable/shape_button_gradiant"
+                android:textColor="@color/white"
+                android:id="@+id/btnSignUp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
