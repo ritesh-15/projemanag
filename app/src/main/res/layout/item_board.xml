@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/selectableItemBackground"
-    android:padding="16dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,11 +12,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/item_container"
+        android:padding="16dp"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:src="@drawable/ic_user_place_holder"
@@ -52,7 +53,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_board_item_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/textLight"
                 android:id="@+id/tv_board_item_created_by"
                 />
@@ -61,6 +62,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_constraintTop_toBottomOf="@+id/item_container"
+        android:background="#f6f6f6"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

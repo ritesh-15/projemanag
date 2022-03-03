@@ -10,6 +10,7 @@ import com.example.projemanag.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.toObject
 import java.lang.Exception
 
 class FirestoreClass {
@@ -26,7 +27,7 @@ class FirestoreClass {
             }
     }
 
-    fun loadUserData(activity:Activity){
+    fun loadUserData(activity:Activity, readBoardsList:Boolean = false){
             firebaseStore.collection(Constants.USERS)
                 .document(getCurrentUserId())
                 .get()
@@ -45,7 +46,7 @@ class FirestoreClass {
                             activity.signInSuccess(currentLoggedInUser)
                         }
                         is MainActivity -> {
-                            activity.updateNavigationUserDetails(currentLoggedInUser)
+                            activity.updateNavigationUserDetails(currentLoggedInUser,readBoardsList)
                         }
                         is ProfileActivity -> {
                             activity.setUserDataInUI(currentLoggedInUser)
@@ -110,5 +111,60 @@ class FirestoreClass {
     }
 
 
+    fun getBoardsList(activity:MainActivity){
+        firebaseStore.collection(Constants.BOARDS)
+            .whereArrayContains(Constants.ASSIGNED_TO,getCurrentUserId())
+            .get()
+            .addOnSuccessListener {
+                document ->
+
+                Log.i("DOCUMENT_BOARD",document.toString())
+
+                val boardsList:ArrayList<Board> = ArrayList()
+
+                for(i in document.documents){
+
+                    val name:String = i.data?.get(Constants.NAME).toString()
+                    val image:String = i.data?.get(Constants.IMAGE).toString()
+                    val createdBy:String = i.data?.get(Constants.CREATED_BY).toString()
+                    val assignedTo:ArrayList<String> = ArrayList()
+
+                    val assignedToArray =i.data?.get(Constants.ASSIGNED_TO).toString()
+
+                   for(j in assignedToArray){
+                       assignedTo.add(j.toString())
+                   }
+
+                    val board = Board(name,image,createdBy,assignedTo,i.id)
+
+                    boardsList.add(board)
+                }
+
+                activity.populateBoardList(boardsList)
+            }.addOnFailureListener {
+                exeption ->
+                Log.e("DOCUMENT_ERROR",exeption.message!!)
+            }
+    }
+
+    fun getBoardDetails(activity:TaskListActivity,documentId:String){
+
+        firebaseStore.collection(Constants.BOARDS)
+            .document(documentId)
+            .get()
+            .addOnSuccessListener {
+                    document ->
+
+                Log.i("DOCUMENT_BOARD",document.toString())
+
+                activity.boardDetails(document.toObject(Board::class.java)!!)
+
+            }.addOnFailureListener {
+                    exeption ->
+                Log.e("DOCUMENT_ERROR",exeption.message!!)
+            }
+
+
+    }
 
 }

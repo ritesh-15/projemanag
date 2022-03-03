@@ -96,6 +96,7 @@ class CreateBoardActivity : BaseActivity() {
     // after creating board successfully
     fun boardCreatedSuccessfully(){
         hideProgressDialog()
+        setResult(Activity.RESULT_OK)
         finish()
     }
 
@@ -150,7 +151,7 @@ class CreateBoardActivity : BaseActivity() {
         setSupportActionBar(binding?.createBoardToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        supportActionBar?.title = "Sign In"
+        supportActionBar?.title = "Create Board"
 
         binding?.createBoardToolbar?.setNavigationOnClickListener{
             // setting up back button

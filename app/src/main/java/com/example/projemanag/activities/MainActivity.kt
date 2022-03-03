@@ -26,6 +26,7 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
     companion object{
         const val MY_PROFILE_REQUEST_CODE = 11
+        const val CREATE_BOARD_REQUEST_CODE = 12
     }
 
     private var binding:ActivityMainBinding? = null
@@ -45,7 +46,8 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
         binding?.navView?.setNavigationItemSelectedListener(this)
 
-        FirestoreClass().loadUserData(this)
+        // load user data
+        FirestoreClass().loadUserData(this,true)
 
 
         // create board button lister
@@ -55,7 +57,7 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
             intent.putExtra(Constants.NAME , mUserName)
 
-           startActivity(intent)
+           startActivityForResult(intent, CREATE_BOARD_REQUEST_CODE)
 
         }
 
@@ -75,6 +77,16 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
             binding?.appBarInclude?.mainActivityContent?.rvBoardList?.setHasFixedSize(true)
 
             val adapter = BoardItemsAdapter(this,boards)
+
+            adapter.setOnClickListener(object:BoardItemsAdapter.OnClickListener{
+                override fun onClick(position: Int, model: Board) {
+                    val intent = Intent(this@MainActivity,TaskListActivity::class.java)
+
+                    intent.putExtra(Constants.DOCUMENT_ID,model.documentId)
+
+                    startActivity(intent)
+                }
+            })
 
             binding?.appBarInclude?.mainActivityContent?.rvBoardList?.adapter = adapter
         }else{
@@ -100,9 +112,11 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
     }
 
     // update navigation user details
-    fun updateNavigationUserDetails(user:User){
+    fun updateNavigationUserDetails(user:User,readBoardsList:Boolean){
 
         mUserName = user.name
+
+
 
         Glide
             .with(this)
@@ -114,6 +128,11 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
         val tvUserName:TextView = findViewById(R.id.nav_user_name)
 
         tvUserName.text = user.name
+
+        if(readBoardsList){
+            showProgressDialog()
+            FirestoreClass().getBoardsList(this)
+        }
     }
 
     // toggle the drawer
@@ -140,8 +159,9 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
         if(requestCode == MY_PROFILE_REQUEST_CODE && resultCode == Activity.RESULT_OK ){
             FirestoreClass().loadUserData(this)
+        }else if(requestCode == CREATE_BOARD_REQUEST_CODE && resultCode == Activity.RESULT_OK ){
+            FirestoreClass().getBoardsList(this)
         }
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
