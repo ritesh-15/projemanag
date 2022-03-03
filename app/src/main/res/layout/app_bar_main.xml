@@ -22,7 +22,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/mainactivity_content"/>
+    <include android:id="@+id/main_activity_content" layout="@layout/mainactivity_content"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -32,7 +32,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
         android:src="@drawable/ic_create_icon"
-        android:padding="16dp"
-        android:contentDescription="Create board" />
+        android:padding="28dp"
+        android:contentDescription="@string/create_board"
+        android:backgroundTint="@color/colorPrimaryAscent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

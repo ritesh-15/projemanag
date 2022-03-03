@@ -2,16 +2,23 @@ package com.example.projemanag.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.projemanag.R
+import com.example.projemanag.adapters.BoardItemsAdapter
 import com.example.projemanag.databinding.ActivityMainBinding
 import com.example.projemanag.databinding.NavHeaderMainBinding
 import com.example.projemanag.firebase.FirestoreClass
+import com.example.projemanag.models.Board
 import com.example.projemanag.models.User
+import com.example.projemanag.utils.Constants
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
@@ -25,6 +32,8 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
     private var navBarBinding :NavHeaderMainBinding? =  null
 
+    private lateinit var mUserName:String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,8 +43,6 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
         setUpActionBar()
 
-
-
         binding?.navView?.setNavigationItemSelectedListener(this)
 
         FirestoreClass().loadUserData(this)
@@ -43,7 +50,37 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
         // create board button lister
         binding?.appBarInclude?.createBoard?.setOnClickListener {
-            startActivity(Intent(this,CreateBoardActivity::class.java))
+
+           val intent = Intent(this,CreateBoardActivity::class.java)
+
+            intent.putExtra(Constants.NAME , mUserName)
+
+           startActivity(intent)
+
+        }
+
+    }
+
+    // populate board
+    fun populateBoardList(boards:ArrayList<Board>){
+
+        hideProgressDialog()
+
+        if(boards.size > 0){
+            binding?.appBarInclude?.mainActivityContent?.rvBoardList?.visibility = View.VISIBLE
+            binding?.appBarInclude?.mainActivityContent?.noBoardsText?.visibility = View.GONE
+
+            binding?.appBarInclude?.mainActivityContent?.rvBoardList?.layoutManager = LinearLayoutManager(this)
+
+            binding?.appBarInclude?.mainActivityContent?.rvBoardList?.setHasFixedSize(true)
+
+            val adapter = BoardItemsAdapter(this,boards)
+
+            binding?.appBarInclude?.mainActivityContent?.rvBoardList?.adapter = adapter
+        }else{
+            binding?.appBarInclude?.mainActivityContent?.rvBoardList?.visibility = View.GONE
+            binding?.appBarInclude?.mainActivityContent?.noBoardsText?.visibility = View.VISIBLE
+
         }
 
     }
@@ -64,6 +101,9 @@ class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
     // update navigation user details
     fun updateNavigationUserDetails(user:User){
+
+        mUserName = user.name
+
         Glide
             .with(this)
             .load(user.image)

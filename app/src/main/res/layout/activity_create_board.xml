@@ -6,24 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".activities.CreateBoardActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:id="@+id/create_board_toolbar"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/create_board_bar"
         >
-    </androidx.appcompat.widget.Toolbar>
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/create_board_toolbar"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/create_board_toolbar"
+        app:layout_constraintTop_toBottomOf="@id/create_board_bar"
         android:layout_margin="16dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="100dp"
@@ -41,7 +54,7 @@
                 android:id="@+id/board_name_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Board Name"
+                android:hint="@string/board_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:layout_constraintTop_toBottomOf="@+id/board_image"
                 android:textColorHint="@color/textLight"
@@ -69,11 +82,13 @@
                 android:padding="16dp"
                 android:background="@drawable/shape_button_gradiant"
                 android:textColor="@color/white"
-                android:id="@+id/btnSignUp"
+                android:id="@+id/btnCreateBoard"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

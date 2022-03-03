@@ -23,10 +23,6 @@ import java.util.jar.Manifest
 
 class ProfileActivity : BaseActivity() {
 
-    companion object{
-        private const val READ_STORAGE_PERMISSION_CODE = 1
-        private const val PICK_IMAGE_REQUEST_CODE = 2
-    }
 
     private var binding:ActivityProfileBinding? = null
 
@@ -50,13 +46,13 @@ class ProfileActivity : BaseActivity() {
                     android.Manifest.permission.READ_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED){
                 // get the permission
-                showImageChooser()
+                Constants.showImageChooser(this)
             }else{
                 // don't have read permission
                 ActivityCompat.requestPermissions(
                     this,
                     arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                    READ_STORAGE_PERMISSION_CODE
+                    Constants.READ_STORAGE_PERMISSION_CODE
                 )
             }
         }
@@ -99,7 +95,7 @@ class ProfileActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK &&
-            requestCode == PICK_IMAGE_REQUEST_CODE &&
+            requestCode == Constants.PICK_IMAGE_REQUEST_CODE &&
                 data!!.data != null){
             mSelectedImageFileUri = data.data
 
@@ -117,11 +113,7 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
-    // check the file type
-    private fun getExtensionOfFile(uri:Uri):String{
-        return uri.toString().
-        substring(uri.toString().lastIndexOf("."))
-    }
+
 
     // upload image
     private fun uploadImage(){
@@ -131,7 +123,7 @@ class ProfileActivity : BaseActivity() {
 
             val sRef:StorageReference = FirebaseStorage.getInstance("gs://projemang-f3bed.appspot.com/")
                 .reference.child("USER_IMAGE_${System.currentTimeMillis()}" +
-                        getExtensionOfFile(mSelectedImageFileUri!!)
+                        Constants.getExtensionOfFile(mSelectedImageFileUri!!)
                 )
 
             sRef.putFile(mSelectedImageFileUri!!).addOnSuccessListener {
@@ -169,11 +161,11 @@ class ProfileActivity : BaseActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        if(requestCode == READ_STORAGE_PERMISSION_CODE){
+        if(requestCode == Constants.READ_STORAGE_PERMISSION_CODE){
             if(grantResults.isNotEmpty() && grantResults[0]
                 == PackageManager.PERMISSION_GRANTED){
                 // access the permission
-                showImageChooser()
+                Constants.showImageChooser(this)
             }
         }else{
             // permission not granted
@@ -185,13 +177,7 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
-    // show image chooser
-    private fun showImageChooser(){
-        val galleryIntent = Intent(Intent.ACTION_PICK,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
 
-        startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST_CODE)
-    }
 
     // set user data in ui
     fun setUserDataInUI(user:User){

@@ -8,12 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#0459D0</color>
-    <color name="colorPrimaryAscent">#2879EB</color>
+    <color name="colorPrimary">#097BFE</color>
+    <color name="colorPrimaryAscent">#3b96ff</color>
 
     <color name="textPrimary">#424242</color>
     <color name="textLight">#838383</color>
 
+    <color name="dividerColor">#eaeaea</color>
 
     <color name="snakeBarColor">#F72400</color>
 </resources>

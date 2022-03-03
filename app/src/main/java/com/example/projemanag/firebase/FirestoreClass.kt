@@ -3,10 +3,8 @@ package com.example.projemanag.firebase
 import android.app.Activity
 import android.util.Log
 import android.widget.Toast
-import com.example.projemanag.activities.MainActivity
-import com.example.projemanag.activities.ProfileActivity
-import com.example.projemanag.activities.SignInActivity
-import com.example.projemanag.activities.SignUpActivity
+import com.example.projemanag.activities.*
+import com.example.projemanag.models.Board
 import com.example.projemanag.models.User
 import com.example.projemanag.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
@@ -96,5 +94,21 @@ class FirestoreClass {
 
         return currentUserID
     }
+
+    fun createNewBoard(activity: CreateBoardActivity,board:Board){
+        firebaseStore.collection(Constants.BOARDS)
+            .document()
+            .set(board, SetOptions.merge())
+            .addOnSuccessListener {
+                Toast.makeText(activity,"Board created successfully!",Toast.LENGTH_SHORT).show()
+                activity.boardCreatedSuccessfully()
+            }.addOnFailureListener {
+                exepetion ->
+                activity.hideProgressDialog()
+                Log.e("BOARD_CREATED_ERROR",exepetion.message!!)
+            }
+    }
+
+
 
 }
