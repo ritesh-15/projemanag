@@ -16,6 +16,7 @@
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_create_board.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_intro.xml" value="0.2" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_members.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_profile.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_sign_in.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
@@ -23,11 +24,14 @@
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/activity_task_list.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/app_bar_main.xml" value="0.2" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/item_board.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/item_card.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/item_member.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/item_task.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/mainactivity_content.xml" value="0.12" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/nav_header_main.xml" value="0.152" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/layout/progress_bar_dialog.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Development/projemanag/app/src/main/res/menu/activity_main_drawer.xml" value="0.2" />
+        <entry key="..\:/Android Development/projemanag/app/src/main/res/menu/menu_members.xml" value="0.21666666666666667" />
       </map>
     </option>
   </component>

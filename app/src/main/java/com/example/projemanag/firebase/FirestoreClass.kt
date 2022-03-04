@@ -157,13 +157,37 @@ class FirestoreClass {
 
                 Log.i("DOCUMENT_BOARD",document.toString())
 
-                activity.boardDetails(document.toObject(Board::class.java)!!)
+                val board = document.toObject(Board::class.java)!!
+
+                board.documentId = document.id
+
+                activity.boardDetails(board)
 
             }.addOnFailureListener {
                     exeption ->
                 Log.e("DOCUMENT_ERROR",exeption.message!!)
             }
+    }
 
+
+    fun addUpdateTaskList(activity: TaskListActivity,board:Board){
+
+        val taskListHashMap = HashMap<String,Any>()
+
+        taskListHashMap[Constants.TASK_LIST] = board.taskList
+
+        firebaseStore.collection(Constants.BOARDS)
+            .document(board.documentId)
+            .update(taskListHashMap)
+            .addOnSuccessListener {
+                Log.i("TASK_LIST_UPDATED","Updated!")
+                activity.addUpdateTaskListSuccess()
+            }
+            .addOnFailureListener {
+                exeption ->
+                activity.hideProgressDialog()
+                Log.e("TASK_UPDATED_ERROR",exeption.message!!)
+            }
 
     }
 

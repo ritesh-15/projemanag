@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="5dp"
     android:orientation="vertical">
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_add_task_list"
-            android:text="Add List"
+            android:text="@string/add_list"
             android:gravity="center"
             android:layout_gravity="center"
             android:padding="12dp"
@@ -35,9 +35,9 @@
             android:id="@+id/cv_add_task_list_name"
             android:elevation="5dp"
             app:cardCornerRadius="5dp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_margin="5dp"
-
+            tools:visibility="visible"
             >
 
             <LinearLayout
@@ -75,7 +75,7 @@
                     android:id="@+id/ib_check_list_name"
                     android:background="?attr/selectableItemBackground"
                     android:padding="10dp"
-                    android:contentDescription="Cancel"
+                    android:contentDescription="@string/cancel"
                     android:src="@drawable/ic_check_icon"
                     />
 
@@ -83,6 +83,206 @@
 
         </androidx.cardview.widget.CardView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_task_item"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_task_view"
+                android:elevation="10dp"
+                android:visibility="visible"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:textColor="@color/textPrimary"
+                    android:text="Title"
+                    android:textSize="16sp"
+                    android:id="@+id/tv_task_list_title"
+                    />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ib_task_list_edit"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="10dp"
+                    android:contentDescription="Edit"
+                    android:src="@drawable/ic_edit_icon"
+
+                    />
+
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ib_task_list_delete"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="10dp"
+                    android:contentDescription="Delete"
+                    android:src="@drawable/ic_delete_icon"
+
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#f6f6f6"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cv_edit_task_list_name"
+                android:elevation="5dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_margin="5dp"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ib_close_editable_view"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="10dp"
+                        android:contentDescription="Cancel"
+                        android:src="@drawable/ic_close_icon"
+
+                        />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="text"
+                        android:hint="List name"
+                        android:autofillHints="List name"
+                        android:id="@+id/et_task_edit_list_name"
+
+                        />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ib_save_task_list_name"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="10dp"
+                        android:contentDescription="Cancel"
+                        android:src="@drawable/ic_edit_icon"
+
+                        />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:id="@+id/rv_card_list"
+
+                />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cv_add_card"
+                android:layout_margin="5dp"
+                android:elevation="5dp"
+                app:cardCornerRadius="5dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ib_close_card_name"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="10dp"
+                        android:contentDescription="Close"
+                        android:src="@drawable/ic_close_icon"
+
+                        />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="text"
+                        android:hint="Card name"
+                        android:autofillHints="Card name"
+                        android:id="@+id/et_card_name"
+
+                        />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ib_done_card_name"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="10dp"
+                        android:contentDescription="image"
+                        android:src="@drawable/ic_edit_icon"
+
+                        />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                tools:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_add_card"
+                android:text="Add Card"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:textSize="18sp"
+                android:background="@color/white"
+                />
+
+        </LinearLayout>
+
     </LinearLayout>
+
+
 
 </androidx.cardview.widget.CardView>

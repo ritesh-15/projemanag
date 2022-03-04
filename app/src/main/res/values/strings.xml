@@ -15,4 +15,7 @@
     <string name="create_board">Create board</string>
     <string name="board_name">Board Name</string>
     <string name="no_board_available">No board available!</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_list">Add List</string>
+    <string name="members">Members</string>
 </resources>
